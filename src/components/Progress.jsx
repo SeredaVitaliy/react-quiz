@@ -3,11 +3,13 @@ export default function Progress({
   numQuestions,
   points,
   maxPossiblePoints,
+  answer,
 }) {
   return (
     <header className="progress">
+      <progress max={numQuestions} value={index + Number(answer !== null)} />
       <p>
-        Вопрос <strong>{index + 1}</strong> / {numQuestions}{" "}
+        Вопрос <strong>{index + 1}</strong> / {numQuestions}
       </p>
 
       <p>
