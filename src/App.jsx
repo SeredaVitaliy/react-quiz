@@ -1,15 +1,47 @@
 import { useEffect, useReducer } from "react";
-import Header from "./Header";
+import Header from "./components/Header";
 import "./index.css";
-import Mainpg from "./mainpg";
+import Mainpg from "./components/Mainpg";
+import Loader from "./components/Loader";
+import Error from "./components/Error";
+import StartScreen from "./components/StartScreen";
+
+const initialState = {
+  questions: [],
+
+  //'loading', 'error', 'ready', 'active', 'finished'
+  status: "loading",
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "dataReceived":
+      return {
+        ...state,
+        questions: action.payload,
+        status: "ready",
+      };
+    case "dataFailed":
+      return {
+        ...state,
+        status: "error",
+      };
+
+    default:
+      throw new Error("dasd");
+  }
+}
+
 export function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+
+  const numQuestions = questions.length;
 
   useEffect(function () {
     fetch("http://localhost:8000/questions")
       .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.error(err));
+      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .catch((err) => dispatch({ type: "dataFailed" }));
   }, []);
 
   return (
@@ -17,8 +49,9 @@ export function App() {
       <Header />
 
       <Mainpg className="main">
-        <p>1/15</p>
-        <p>Вопрос</p>
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
       </Mainpg>
     </div>
   );
