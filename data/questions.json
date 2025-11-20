@@ -1,139 +1,229 @@
 {
   "questions": [
     {
-      "question": "Which is the most popular JavaScript framework?",
-      "options": ["Angular", "React", "Svelte", "Vue"],
+      "question": "Какой фреймворк считается самым популярным в экосистеме JavaScript?",
+      "options": ["Angular", "React", "Vue", "Svelte"],
       "correctOption": 1,
       "points": 10
     },
     {
-      "question": "Which company invented React?",
-      "options": ["Google", "Apple", "Netflix", "Facebook"],
-      "correctOption": 3,
+      "question": "Какая компания создала React?",
+      "options": ["Google", "Facebook (Meta)", "Amazon", "Netflix"],
+      "correctOption": 1,
       "points": 10
     },
     {
-      "question": "What's the fundamental building block of React apps?",
-      "options": ["Components", "Blocks", "Elements", "Effects"],
+      "question": "Как называется основная строительная единица React-приложений?",
+      "options": ["Компоненты", "Контроллеры", "Виджеты", "Модули"],
       "correctOption": 0,
       "points": 10
     },
     {
-      "question": "What's the name of the syntax we use to describe the UI in React components?",
-      "options": ["FBJ", "Babel", "JSX", "ES2015"],
-      "correctOption": 2,
+      "question": "Как называется синтаксис, который описывает UI в React?",
+      "options": ["HTML+", "JSX", "RML", "UIX"],
+      "correctOption": 1,
       "points": 10
     },
     {
-      "question": "How does data flow naturally in React apps?",
+      "question": "Как данные обычно передаются в React-приложениях?",
       "options": [
-        "From parents to children",
-        "From children to parents",
-        "Both ways",
-        "The developers decides"
+        "От родителя к ребёнку",
+        "От ребёнка к родителю",
+        "В обе стороны",
+        "Зависит от браузера"
       ],
       "correctOption": 0,
       "points": 10
     },
     {
-      "question": "How to pass data into a child component?",
-      "options": ["State", "Props", "PropTypes", "Parameters"],
+      "question": "Как передать данные в дочерний компонент?",
+      "options": ["Через state", "Через props", "Через события", "Через Ref"],
       "correctOption": 1,
       "points": 10
     },
     {
-      "question": "When to use derived state?",
+      "question": "Когда нужно использовать производное (derived) состояние?",
       "options": [
-        "Whenever the state should not trigger a re-render",
-        "Whenever the state can be synchronized with an effect",
-        "Whenever the state should be accessible to all components",
-        "Whenever the state can be computed from another state variable"
+        "Когда состояние не должно вызывать повторный рендер",
+        "Когда состояние зависит от API-запросов",
+        "Когда состояние должно использоваться всеми компонентами",
+        "Когда состояние можно вычислить из другого состояния"
       ],
       "correctOption": 3,
       "points": 30
     },
     {
-      "question": "What triggers a UI re-render in React?",
+      "question": "Что приводит к повторному рендеру компонента?",
       "options": [
-        "Running an effect",
-        "Passing props",
-        "Updating state",
-        "Adding event listeners to DOM elements"
+        "Запуск эффекта",
+        "Передача props",
+        "Обновление состояния",
+        "Изменение стилей"
       ],
       "correctOption": 2,
       "points": 20
     },
     {
-      "question": "When do we directly \"touch\" the DOM in React?",
+      "question": "Как часто мы должны напрямую изменять DOM в React?",
       "options": [
-        "When we need to listen to an event",
-        "When we need to change the UI",
-        "When we need to add styles",
-        "Almost never"
+        "Каждый раз при рендере",
+        "Иногда",
+        "Когда удобно",
+        "Почти никогда"
       ],
       "correctOption": 3,
       "points": 20
     },
     {
-      "question": "In what situation do we use a callback to update state?",
+      "question": "Когда нужно использовать callback-форму обновления состояния?",
       "options": [
-        "When updating the state will be slow",
-        "When the updated state is very data-intensive",
-        "When the state update should happen faster",
-        "When the new state depends on the previous state"
+        "Когда обновление слишком долгое",
+        "Когда состояние большое",
+        "Когда нужно оптимизировать рендер",
+        "Когда новое состояние зависит от предыдущего"
       ],
       "correctOption": 3,
       "points": 30
     },
     {
-      "question": "If we pass a function to useState, when will that function be called?",
+      "question": "Когда вызывается функция, переданная в useState при инициализации?",
       "options": [
-        "On each re-render",
-        "Each time we update the state",
-        "Only on the initial render",
-        "The first time we update the state"
+        "При каждом рендере",
+        "Каждый раз при обновлении state",
+        "Только при первом рендере",
+        "При размонтировании компонента"
       ],
       "correctOption": 2,
       "points": 30
     },
     {
-      "question": "Which hook to use for an API request on the component's initial render?",
-      "options": ["useState", "useEffect", "useRef", "useReducer"],
-      "correctOption": 1,
+      "question": "Какой хук используют для выполнения API-запроса при первом рендере?",
+      "options": ["useMemo", "useState", "useEffect", "useRef"],
+      "correctOption": 2,
       "points": 10
     },
     {
-      "question": "Which variables should go into the useEffect dependency array?",
+      "question": "Какие переменные должны быть в массиве зависимостей useEffect?",
       "options": [
-        "Usually none",
-        "All our state variables",
-        "All state and props referenced in the effect",
-        "All variables needed for clean up"
+        "Никакие",
+        "Только props",
+        "Все значения, используемые внутри эффекта",
+        "Только state"
       ],
       "correctOption": 2,
       "points": 30
     },
     {
-      "question": "An effect will always run on the initial render.",
-      "options": [
-        "True",
-        "It depends on the dependency array",
-        "False",
-        "In depends on the code in the effect"
-      ],
+      "question": "Эффект (useEffect) всегда выполняется при первом рендере.",
+      "options": ["Да", "Нет", "Зависит от зависимостей", "Никогда"],
       "correctOption": 0,
       "points": 30
     },
     {
-      "question": "When will an effect run if it doesn't have a dependency array?",
+      "question": "Когда выполняется эффект без массива зависимостей?",
       "options": [
-        "Only when the component mounts",
-        "Only when the component unmounts",
-        "The first time the component re-renders",
-        "Each time the component is re-rendered"
+        "Только при монтировании",
+        "Только при размонтировании",
+        "Только при первом обновлении",
+        "При каждом рендере"
       ],
       "correctOption": 3,
       "points": 20
+    },
+    {
+      "question": "Какой хук используется для хранения значения между рендерами?",
+      "options": ["useRef", "useStore", "useMemo", "useState"],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "Какой хук подходит для сложной логики обновления состояния?",
+      "options": ["useEffect", "useReducer", "useMemo", "useRef"],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "Что произойдёт при непосредственном изменении объекта внутри useState без setState?",
+      "options": [
+        "Компонент обновится",
+        "Компонент зависнет",
+        "Рендера не будет",
+        "Произойдёт ошибка"
+      ],
+      "correctOption": 2,
+      "points": 20
+    },
+    {
+      "question": "Что делает useMemo?",
+      "options": [
+        "Кэширует вычисления",
+        "Кэширует компоненты",
+        "Оптимизирует DOM-дерево",
+        "Заменяет useEffect"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "Что делает useCallback?",
+      "options": [
+        "Кэширует функции",
+        "Кэширует объекты",
+        "Оптимизирует рендер DOM",
+        "Создаёт новый state"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "Что хранит useRef?",
+      "options": [
+        "Массив зависимостей",
+        "Ссылку на DOM или произвольное значение",
+        "Состояние компонента",
+        "Кэш вызовов функций"
+      ],
+      "correctOption": 1,
+      "points": 10
+    },
+    {
+      "question": "Когда вызывается функция очистки (cleanup) в useEffect?",
+      "options": [
+        "До каждого нового вызова эффекта",
+        "После каждого рендера",
+        "Только при размонтировании",
+        "Никогда"
+      ],
+      "correctOption": 0,
+      "points": 20
+    },
+    {
+      "question": "Что произойдёт, если в dependency array указать пустой массив?",
+      "options": [
+        "Эффект будет выполняться при каждом рендере",
+        "Эффект выполнится один раз при монтировании",
+        "Эффект не выполнится вообще",
+        "Эффект будет выполняться каждый раз, когда обновится state"
+      ],
+      "correctOption": 1,
+      "points": 20
+    },
+    {
+      "question": "Как лучше всего передать функцию из родителя в ребёнка?",
+      "options": ["Через props", "Через контекст", "Через state", "Никак"],
+      "correctOption": 0,
+      "points": 10
+    },
+    {
+      "question": "Когда стоит использовать Context?",
+      "options": [
+        "Когда нужно передать данные нескольким уровням компонентов",
+        "Когда компонент слишком большой",
+        "Когда мало state",
+        "Когда нужно ускорить работу приложения"
+      ],
+      "correctOption": 0,
+      "points": 30
     }
   ]
 }
