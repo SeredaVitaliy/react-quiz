@@ -1,4 +1,9 @@
-export default function FinishScreen({ points, maxPosibblePoints, highscore }) {
+export default function FinishScreen({
+  points,
+  maxPosibblePoints,
+  highscore,
+  dispatch,
+}) {
   const percentage = (points / maxPosibblePoints) * 100;
 
   //показ эмодзи с учетом количества баллов за ответы
@@ -16,6 +21,13 @@ export default function FinishScreen({ points, maxPosibblePoints, highscore }) {
         {maxPosibblePoints} ({Math.ceil(percentage)}%)
       </p>
       <p className="highscore">(Лучший счет: {highscore} баллов)</p>
+
+      <button
+        className="btn btn-ui"
+        onClick={() => dispatch({ type: "restart" })}
+      >
+        Перезапустить
+      </button>
     </>
   );
 }
